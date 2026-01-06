@@ -1,0 +1,1922 @@
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primary-color: #f58220;
+    /* Orange */
+    --secondary-color: #1f7a4f;
+    /* Green */
+    --light-bg: #f9f9f9;
+    --white: #ffffff;
+    --text-dark: #333333;
+    --text-muted: #666666;
+    --transition: all 0.3s ease;
+    --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    padding-top: 80px;
+    color: var(--text-dark);
+}
+
+* {
+    outline: none !important;
+}
+
+/* Navbar Styling */
+.navbar {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.98) !important;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    transition: var(--transition);
+    padding: 0.8rem 0;
+}
+
+.navbar-brand {
+    font-size: 1.1rem;
+    transition: var(--transition);
+}
+
+.navbar-brand img {
+    height: 55px;
+    width: auto;
+    object-fit: contain;
+    max-width: 55px;
+}
+
+.navbar-brand:hover {
+    opacity: 0.9;
+}
+
+.brand-text {
+    font-weight: 700;
+    color: var(--secondary-color);
+    letter-spacing: 0.3px;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--text-dark) !important;
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem !important;
+    border-radius: 8px;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--primary-color) !important;
+    background-color: rgba(245, 130, 32, 0.1);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 70%;
+}
+
+.navbar-toggler {
+    border: none;
+    padding: 0.5rem;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.2rem rgba(245, 130, 32, 0.25);
+}
+
+/* Book Now Button in Navbar */
+.btn-book-now {
+    background: linear-gradient(135deg, var(--primary-color), #e46f0f);
+    color: white !important;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(245, 130, 32, 0.3);
+}
+
+.btn-book-now:hover {
+    background: linear-gradient(135deg, #e46f0f, var(--primary-color));
+    box-shadow: 0 6px 20px rgba(245, 130, 32, 0.4);
+    color: white !important;
+}
+
+.hero-section {
+    height: 95vh;
+    background-image: url("images/Hero.png");
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subdued side-fade overlay to show more image */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+    z-index: 1;
+}
+
+.hero-content-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.hero-glass-card {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    padding: 50px;
+    max-width: 680px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+}
+
+.experience-tag {
+    display: inline-block;
+    background: rgba(245, 130, 32, 0.1);
+    color: var(--primary-color);
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-section h1 {
+    color: var(--secondary-color);
+    font-weight: 800;
+    font-size: 3.8rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-section .lead {
+    font-size: 1.3rem;
+    color: #444;
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 35px;
+}
+
+.trust-badges {
+    display: flex;
+    gap: 30px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: 30px;
+}
+
+.badge-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.badge-item i {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+}
+
+.badge-item span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Animations */
+.animate-fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+.animate-slide-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideUp 0.8s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), #e46f0f);
+    border: none;
+    padding: 1rem 2.5rem;
+    font-weight: 700;
+    border-radius: 50px;
+    box-shadow: 0 10px 25px rgba(245, 130, 32, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-primary:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(245, 130, 32, 0.4);
+    background: linear-gradient(135deg, #e46f0f, var(--primary-color));
+}
+
+.btn-outline-light {
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    padding: 1rem 2rem;
+    font-weight: 700;
+    border-radius: 50px;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+    background: var(--secondary-color);
+    color: white;
+    transform: translateY(-5px);
+}
+
+/* About Us Section */
+.about-section {
+    background-color: var(--light-bg);
+}
+
+.about-image img {
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.about-content .section-title {
+    text-align: left;
+    font-size: 2.2rem;
+    position: relative;
+}
+
+.about-content .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+.about-text {
+    color: #555;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.about-features {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+    color: #333;
+}
+
+.feature-icon {
+    color: var(--secondary-color);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.section-padding {
+    padding: 100px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-weight: 700;
+    color: var(--secondary-color);
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+/* Services Section */
+.services-section {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.service-card {
+    background: var(--white);
+    padding: 35px 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    height: 100%;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.service-card:hover::before {
+    transform: scaleX(1);
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.service-card h5 {
+    color: var(--secondary-color);
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+}
+
+.service-card p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Doctors Section */
+.doctors-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.doctor-card {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.4s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.doctor-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+}
+
+.doctor-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+.doctor-avatar {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, var(--secondary-color), #2a9d5c);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    box-shadow: 0 8px 25px rgba(31, 122, 79, 0.3);
+}
+
+.doctor-avatar span {
+    font-size: 3rem;
+}
+
+.doctor-info h4 {
+    color: var(--secondary-color);
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+}
+
+.doctor-specialty {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.doctor-description {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Booking Form Section */
+.booking-section {
+    background: var(--light-bg);
+}
+
+.booking-form-container {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.booking-form .form-label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.booking-form .form-control,
+.booking-form .form-select {
+    padding: 12px 15px;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.booking-form .form-control:focus,
+.booking-form .form-select:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(31, 122, 79, 0.15);
+}
+
+.booking-form .form-control::placeholder {
+    color: #adb5bd;
+}
+
+.booking-form .btn-primary {
+    padding: 15px 40px;
+    font-size: 1.1rem;
+}
+
+.form-note {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.form-note i {
+    color: var(--primary-color);
+}
+
+/* FAQ Section */
+.faq-section {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.faq-section .accordion-item {
+    border: none;
+    margin-bottom: 15px;
+    border-radius: 12px !important;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+}
+
+.faq-section .accordion-button {
+    background: white;
+    font-weight: 600;
+    color: #333;
+    padding: 20px 25px;
+    font-size: 1.05rem;
+}
+
+.faq-section .accordion-button:not(.collapsed) {
+    background: linear-gradient(135deg, var(--secondary-color), #2a9d5c);
+    color: white;
+    box-shadow: none;
+}
+
+.faq-section .accordion-button:not(.collapsed) i {
+    color: white;
+}
+
+.faq-section .accordion-button i {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.faq-section .accordion-button:focus {
+    box-shadow: none;
+    border-color: transparent;
+}
+
+.faq-section .accordion-button::after {
+    background-size: 16px;
+}
+
+.faq-section .accordion-button:not(.collapsed)::after {
+    filter: brightness(0) invert(1);
+}
+
+.faq-section .accordion-body {
+    padding: 20px 25px;
+    background: white;
+    color: #555;
+    line-height: 1.7;
+}
+
+.faq-section .accordion-body ul {
+    padding-left: 20px;
+}
+
+.faq-section .accordion-body li {
+    margin-bottom: 5px;
+}
+
+/* Contact Section */
+.contact-section {
+    background: var(--light-bg);
+}
+
+.contact-info {
+    padding: 20px 0;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.contact-icon {
+    font-size: 1.8rem;
+    min-width: 40px;
+}
+
+.contact-item h5 {
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.contact-item p {
+    color: #555;
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+.contact-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+.contact-buttons .btn-outline-success {
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+.contact-buttons .btn-outline-success:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-whatsapp {
+    background-color: #25D366;
+    border: none;
+    color: white;
+    font-weight: 600;
+    border-radius: 50px;
+    padding: 0.8rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+    background-color: #1da851;
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+}
+
+/* Patient Reviews Section Styles */
+.reviews-section {
+    background-color: var(--light-bg) !important;
+}
+
+.review-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.review-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    border-color: rgba(245, 130, 32, 0.2);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.patient-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.patient-avatar {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, var(--secondary-color), #2a9d5c);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.star-rating {
+    color: #ffc107;
+    font-size: 0.85rem;
+    display: flex;
+    gap: 2px;
+}
+
+.review-body {
+    position: relative;
+    z-index: 1;
+}
+
+.quote-icon {
+    position: absolute;
+    top: -10px;
+    right: 0;
+    font-size: 2.5rem;
+    color: rgba(0, 0, 0, 0.03);
+    z-index: -1;
+}
+
+.review-body p {
+    color: var(--text-dark);
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+    font-style: italic;
+    opacity: 0.85;
+}
+
+/* Aesthetic Contact Card Styles */
+.contact-card-aesthetic {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 25px;
+    padding: 40px;
+    box-shadow: var(--shadow-soft);
+}
+
+.contact-item-new {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.contact-icon-wrapper {
+    min-width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--secondary-color), #095a53);
+    color: white;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    box-shadow: 0 8px 15px rgba(11, 108, 99, 0.2);
+}
+
+.contact-text h5 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+}
+
+.contact-text p {
+    margin-bottom: 0;
+    color: #444;
+    line-height: 1.5;
+}
+
+.phone-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.phone-link:hover {
+    color: #e46f0f;
+}
+
+.bg-success-soft {
+    background-color: rgba(25, 135, 84, 0.1);
+    font-weight: 600;
+}
+
+/* Call & WhatsApp Aesthetic Buttons */
+.btn-call-aesthetic {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(245, 130, 32, 0.3);
+}
+
+.btn-call-aesthetic:hover {
+    background: #e46f0f;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(245, 130, 32, 0.4);
+}
+
+.btn-whatsapp-aesthetic {
+    background: #25d366;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp-aesthetic:hover {
+    background: #128c7e;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+}
+
+/* Social Circles */
+.social-circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+}
+
+.social-circle.fb {
+    background: #1877F2;
+}
+
+.social-circle.ig {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.social-circle:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    color: white !important;
+}
+
+.map-container {
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.map-container iframe {
+    display: block;
+}
+
+.footer {
+    background: var(--secondary-color);
+    color: white;
+    padding: 15px 0;
+}
+
+/* AI Chatbot Styles */
+#chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.chatbot-toggle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--secondary-color), #2a9d5c);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 5px 25px rgba(31, 122, 79, 0.4);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.chatbot-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 30px rgba(31, 122, 79, 0.5);
+}
+
+.chat-notification {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: var(--primary-color);
+    color: white;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.chatbot-window {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 380px;
+    height: 500px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    animation: slideUp 0.3s ease;
+}
+
+.chatbot-window.active {
+    display: flex;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.chatbot-header {
+    background: linear-gradient(135deg, var(--secondary-color), #2a9d5c);
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chatbot-header-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.chatbot-avatar {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+}
+
+.chatbot-header h5 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.chatbot-status {
+    font-size: 0.75rem;
+    opacity: 0.9;
+}
+
+.chatbot-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.chatbot-close:hover {
+    opacity: 1;
+}
+
+.chatbot-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background: #f8f9fa;
+}
+
+.chat-message {
+    margin-bottom: 15px;
+    display: flex;
+}
+
+.bot-message {
+    justify-content: flex-start;
+}
+
+.user-message {
+    justify-content: flex-end;
+}
+
+.message-content {
+    max-width: 85%;
+    padding: 12px 16px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.bot-message .message-content {
+    background: white;
+    color: #333;
+    border-bottom-left-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.user-message .message-content {
+    background: linear-gradient(135deg, var(--secondary-color), #2a9d5c);
+    color: white;
+    border-bottom-right-radius: 5px;
+}
+
+.message-content p {
+    margin-bottom: 8px;
+}
+
+.message-content p:last-child {
+    margin-bottom: 0;
+}
+
+.message-content ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.message-content li {
+    margin-bottom: 5px;
+}
+
+.quick-questions {
+    font-weight: 600;
+    margin-top: 10px !important;
+}
+
+.chatbot-input-container {
+    display: flex;
+    padding: 15px;
+    background: white;
+    border-top: 1px solid #e9ecef;
+    gap: 10px;
+}
+
+#chatbot-input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid #e9ecef;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#chatbot-input:focus {
+    border-color: var(--secondary-color);
+}
+
+.chatbot-clear {
+    background: none;
+    border: none;
+    color: #adb5bd;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0 5px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chatbot-clear:hover {
+    color: #dc3545;
+    transform: scale(1.1);
+}
+
+#chatbot-send {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), #e46f0f);
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#chatbot-send:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(245, 130, 32, 0.4);
+}
+
+.typing-indicator {
+    display: flex;
+    gap: 5px;
+    padding: 15px;
+}
+
+.typing-indicator span {
+    width: 8px;
+    height: 8px;
+    background: #adb5bd;
+    border-radius: 50%;
+    animation: typing 1.4s infinite;
+}
+
+.typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+
+    0%,
+    60%,
+    100% {
+        transform: translateY(0);
+    }
+
+    30% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+    .chatbot-window {
+        width: calc(100vw - 40px);
+        height: calc(100vh - 150px);
+        bottom: 70px;
+        right: -10px;
+    }
+}
+
+/* Emergency Modal Styles */
+.emergency-modal-header {
+    background: linear-gradient(135deg, #dc3545, #9b1c28);
+    color: white;
+}
+
+.emergency-icon {
+    font-size: 3rem;
+}
+
+.emergency-info-box {
+    background: #fff5f5;
+    border-left: 4px solid #dc3545;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.emergency-info-box h5 {
+    color: #9b1c28;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.btn-emergency-call {
+    background: #dc3545;
+    color: white;
+    border: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-emergency-call:hover {
+    background: #c82333;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(220, 53, 69, 0.4);
+}
+
+.btn-emergency-whatsapp {
+    background: #25d366;
+    color: white;
+    border: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-emergency-whatsapp:hover {
+    background: #128c7e;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+}
+
+.modal-content {
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+/* Global Button Optimization Helper */
+.btn-transition {
+    transition: var(--transition);
+}
+
+/* ========================================
+   MOBILE RESPONSIVE STYLES
+   ======================================== */
+
+/* Large Tablets & Small Laptops (max-width: 992px) */
+@media (max-width: 992px) {
+    body {
+        padding-top: 70px;
+    }
+
+    .navbar-brand img {
+        height: 45px;
+        max-width: 45px;
+    }
+
+    .brand-text {
+        font-size: 0.95rem;
+    }
+
+    .hero-section {
+        height: auto;
+        min-height: 80vh;
+        padding: 60px 0;
+    }
+
+    .hero-glass-card {
+        padding: 35px;
+        max-width: 100%;
+    }
+
+    .hero-section h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-section .lead {
+        font-size: 1.1rem;
+    }
+
+    .trust-badges {
+        gap: 20px;
+    }
+
+    .section-padding {
+        padding: 70px 0;
+    }
+
+    .section-title {
+        font-size: 1.9rem;
+    }
+
+    .about-content .section-title {
+        font-size: 1.9rem;
+    }
+
+    .booking-form-container {
+        padding: 30px;
+    }
+
+    .contact-card-aesthetic {
+        padding: 30px;
+    }
+
+    .doctor-card {
+        padding: 30px 20px;
+    }
+}
+
+/* Tablets & Mobile Landscape (max-width: 768px) */
+@media (max-width: 768px) {
+    body {
+        padding-top: 65px;
+    }
+
+    .navbar {
+        padding: 0.6rem 0;
+    }
+
+    .navbar-brand img {
+        height: 40px;
+        max-width: 40px;
+    }
+
+    .brand-text {
+        font-size: 0.85rem;
+    }
+
+    .btn-book-now {
+        padding: 8px 18px;
+        font-size: 0.9rem;
+    }
+
+    .nav-link {
+        margin: 0;
+        padding: 0.75rem 1rem !important;
+    }
+
+    .hero-section {
+        height: auto;
+        min-height: 70vh;
+        padding: 50px 0;
+        background-position: center center;
+    }
+
+    .hero-glass-card {
+        padding: 30px 25px;
+        border-radius: 20px;
+    }
+
+    .hero-section h1 {
+        font-size: 2.2rem;
+        line-height: 1.2;
+    }
+
+    .hero-section .lead {
+        font-size: 1rem;
+        margin-bottom: 25px;
+    }
+
+    .experience-tag {
+        font-size: 0.75rem;
+        padding: 6px 14px;
+    }
+
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        margin: 0 !important;
+    }
+
+    .trust-badges {
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+    }
+
+    .badge-item {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .badge-item i {
+        font-size: 1.2rem;
+    }
+
+    .badge-item span {
+        font-size: 0.75rem;
+    }
+
+    .section-padding {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        font-size: 1.7rem;
+        margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .about-image {
+        margin-bottom: 30px;
+    }
+
+    .about-content .section-title {
+        font-size: 1.7rem;
+        text-align: center;
+    }
+
+    .about-content .section-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .about-text {
+        font-size: 0.95rem;
+        text-align: center;
+    }
+
+    .about-features {
+        align-items: center;
+    }
+
+    .service-card {
+        padding: 25px 20px;
+    }
+
+    .service-icon {
+        font-size: 2.5rem;
+    }
+
+    .service-card h5 {
+        font-size: 1.1rem;
+    }
+
+    .doctor-card {
+        padding: 25px 20px;
+    }
+
+    .doctor-avatar {
+        width: 80px;
+        height: 80px;
+    }
+
+    .doctor-avatar span {
+        font-size: 2.5rem;
+    }
+
+    .doctor-info h4 {
+        font-size: 1.2rem;
+    }
+
+    .booking-form-container {
+        padding: 25px 20px;
+    }
+
+    .booking-form .btn-primary {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+
+    .faq-section .accordion-button {
+        padding: 15px 18px;
+        font-size: 0.95rem;
+    }
+
+    .faq-section .accordion-body {
+        padding: 15px 18px;
+    }
+
+    .review-card {
+        padding: 20px;
+    }
+
+    .patient-avatar {
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+    }
+
+    .review-header h5 {
+        font-size: 0.95rem;
+    }
+
+    .star-rating {
+        font-size: 0.75rem;
+    }
+
+    .contact-card-aesthetic {
+        padding: 25px 20px;
+        margin-bottom: 30px;
+    }
+
+    .contact-icon-wrapper {
+        min-width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+
+    .contact-text h5 {
+        font-size: 1rem;
+    }
+
+    .phone-link {
+        font-size: 1.1rem;
+    }
+
+    .contact-actions {
+        text-align: center;
+    }
+
+    .contact-actions .d-flex {
+        justify-content: center;
+    }
+
+    .btn-call-aesthetic,
+    .btn-whatsapp-aesthetic {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .map-container {
+        border-radius: 15px;
+    }
+
+    .map-container iframe {
+        height: 300px;
+    }
+
+    /* Chatbot responsive */
+    .chatbot-window {
+        width: calc(100vw - 30px);
+        height: 420px;
+        max-height: 60vh;
+        bottom: 75px;
+        right: -5px;
+    }
+
+    .chatbot-toggle {
+        width: 55px;
+        height: 55px;
+        font-size: 1.3rem;
+    }
+
+    /* Emergency Modal */
+    .emergency-icon {
+        font-size: 2.5rem;
+    }
+
+    .emergency-info-box {
+        padding: 12px;
+    }
+}
+
+/* Mobile Portrait (max-width: 576px) */
+@media (max-width: 576px) {
+    body {
+        padding-top: 60px;
+    }
+
+    .navbar {
+        padding: 0.5rem 0;
+    }
+
+    .navbar-brand {
+        font-size: 0.9rem;
+    }
+
+    .navbar-brand img {
+        height: 35px;
+        max-width: 35px;
+    }
+
+    .brand-text {
+        font-size: 0.8rem;
+        max-width: 150px;
+        line-height: 1.2;
+    }
+
+    .navbar-toggler {
+        padding: 0.25rem 0.5rem;
+        font-size: 1rem;
+    }
+
+    .hero-section {
+        min-height: 60vh;
+        padding: 40px 0;
+    }
+
+    .hero-glass-card {
+        padding: 25px 20px;
+        border-radius: 18px;
+    }
+
+    .hero-section h1 {
+        font-size: 1.75rem;
+    }
+
+    .hero-section .lead {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+
+    .experience-tag {
+        font-size: 0.65rem;
+        padding: 5px 12px;
+        letter-spacing: 0.5px;
+    }
+
+    .btn-primary,
+    .btn-outline-light {
+        padding: 0.85rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .trust-badges {
+        padding-top: 20px;
+        gap: 12px;
+    }
+
+    .section-padding {
+        padding: 50px 0;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .about-content .section-title {
+        font-size: 1.5rem;
+    }
+
+    .about-text {
+        font-size: 0.9rem;
+    }
+
+    .feature-item {
+        font-size: 0.9rem;
+    }
+
+    .service-card {
+        padding: 20px 15px;
+    }
+
+    .service-icon {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+
+    .service-card h5 {
+        font-size: 1rem;
+    }
+
+    .service-card p {
+        font-size: 0.85rem;
+    }
+
+    .doctor-card {
+        padding: 20px 15px;
+    }
+
+    .doctor-avatar {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 20px;
+    }
+
+    .doctor-avatar span {
+        font-size: 2rem;
+    }
+
+    .doctor-info h4 {
+        font-size: 1.1rem;
+    }
+
+    .doctor-specialty {
+        font-size: 0.9rem;
+    }
+
+    .doctor-description {
+        font-size: 0.85rem;
+    }
+
+    .booking-form-container {
+        padding: 20px 15px;
+        border-radius: 15px;
+    }
+
+    .booking-form .form-label {
+        font-size: 0.9rem;
+    }
+
+    .booking-form .form-control,
+    .booking-form .form-select {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+
+    .booking-form .btn-primary {
+        padding: 12px 25px;
+        font-size: 0.95rem;
+        width: 100%;
+    }
+
+    .form-note {
+        font-size: 0.8rem;
+    }
+
+    .faq-section .accordion-button {
+        padding: 12px 15px;
+        font-size: 0.85rem;
+    }
+
+    .faq-section .accordion-button i {
+        font-size: 0.9rem;
+    }
+
+    .faq-section .accordion-body {
+        padding: 12px 15px;
+        font-size: 0.9rem;
+    }
+
+    .review-card {
+        padding: 18px 15px;
+    }
+
+    .review-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .patient-info h5 {
+        font-size: 0.9rem;
+    }
+
+    .review-body p {
+        font-size: 0.85rem;
+    }
+
+    .contact-card-aesthetic {
+        padding: 20px 15px;
+        border-radius: 18px;
+    }
+
+    .contact-item-new {
+        gap: 15px;
+    }
+
+    .contact-icon-wrapper {
+        min-width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        border-radius: 12px;
+    }
+
+    .contact-text h5 {
+        font-size: 0.95rem;
+    }
+
+    .contact-text p {
+        font-size: 0.85rem;
+    }
+
+    .phone-link {
+        font-size: 1rem;
+    }
+
+    .contact-actions .d-flex {
+        flex-direction: column;
+        gap: 12px !important;
+    }
+
+    .btn-call-aesthetic,
+    .btn-whatsapp-aesthetic {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .social-links-inline {
+        justify-content: center;
+        width: 100%;
+        margin-top: 5px !important;
+        margin-left: 0 !important;
+    }
+
+    .social-circle {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .map-container {
+        border-radius: 12px;
+    }
+
+    .map-container iframe {
+        height: 250px;
+    }
+
+    /* Chatbot adjustments */
+    #chatbot-container {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .chatbot-toggle {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+    .chat-notification {
+        width: 18px;
+        height: 18px;
+        font-size: 0.65rem;
+    }
+
+    .chatbot-window {
+        width: calc(100vw - 20px);
+        height: 380px;
+        max-height: 55vh;
+        bottom: 65px;
+        right: -5px;
+        border-radius: 15px;
+    }
+
+    .chatbot-header {
+        padding: 12px 15px;
+    }
+
+    .chatbot-avatar {
+        width: 35px;
+        height: 35px;
+        font-size: 1.1rem;
+    }
+
+    .chatbot-header h5 {
+        font-size: 0.9rem;
+    }
+
+    .chatbot-messages {
+        padding: 15px;
+    }
+
+    .message-content {
+        padding: 10px 14px;
+        font-size: 0.85rem;
+    }
+
+    .chatbot-input-container {
+        padding: 12px;
+    }
+
+    #chatbot-input {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+    }
+
+    #chatbot-send {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Emergency Modal on mobile */
+    .modal-dialog {
+        margin: 10px;
+    }
+
+    .emergency-modal-header {
+        padding: 20px 15px !important;
+    }
+
+    .emergency-icon {
+        font-size: 2rem;
+    }
+
+    .modal-body {
+        padding: 20px 15px !important;
+    }
+
+    .btn-emergency-call,
+    .btn-emergency-whatsapp {
+        font-size: 0.9rem;
+        padding: 12px 20px;
+    }
+
+    .footer {
+        padding: 12px 0;
+        font-size: 0.85rem;
+    }
+}
+
+/* Extra Small Devices (max-width: 375px) */
+@media (max-width: 375px) {
+    .hero-section h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-section .lead {
+        font-size: 0.85rem;
+    }
+
+    .brand-text {
+        font-size: 0.75rem;
+        max-width: 120px;
+    }
+
+    .section-title {
+        font-size: 1.35rem;
+    }
+
+    .experience-tag {
+        font-size: 0.6rem;
+    }
+
+    .trust-badges {
+        gap: 10px;
+    }
+
+    .badge-item span {
+        font-size: 0.7rem;
+    }
+}

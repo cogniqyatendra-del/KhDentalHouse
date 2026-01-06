@@ -1056,7 +1056,6 @@ nav a:hover::after {
   word-wrap: break-word;
   word-break: break-word;
 }
-
 .automation-output {
   background-color: #fff8f0;
   border-radius: 8px;
@@ -1904,9 +1903,9 @@ html {
     box-shadow: 0 4px 15px rgba(255, 153, 0, 0.4);
 }
 
-#contact{
+/* #contact{
   padding-bottom: 22vh;
-}
+} */
 
 
 /* hero section css */
@@ -2082,3 +2081,88 @@ html {
                 font-size: 0.9rem;
             }
         }
+
+
+/* ---------- FORCE consistent chat bubble widths & alignment ---------- */
+/* Put this at the VERY END of style.css to override earlier rules */
+
+.chat-widget-popup .chat-window {
+  display: flex;              /* column flex layout */
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;    /* default start (left) for bot messages */
+}
+
+/* Make all chat bubbles block-level and use box-sizing so padding is counted in width */
+.chat-widget-popup .chat-message {
+  display: block !important;
+  box-sizing: border-box !important;
+  width: auto !important;
+  max-width: 85% !important;   /* same maximum width for both sides */
+  padding: 12px 14px !important;
+  margin: 0 0 12px 0 !important;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Bot (incoming) — left aligned */
+.chat-widget-popup .chat-message.bot {
+  align-self: flex-start !important;
+  text-align: left !important;
+  border-bottom-left-radius: 4px !important;
+}
+
+/* User (sent) — right aligned */
+.chat-widget-popup .chat-message.user {
+  align-self: flex-end !important;
+  text-align: right !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+/* Optional: if you want exact same inner text width (accounting for margins),
+   reduce the max-width a bit to leave breathing room (example 78% instead of 85%). */
+/* .chat-widget-popup .chat-message { max-width: 78% !important; } */
+
+
+/* === Aesthetic Google Map Styling (Kadak Adda Theme) === */
+
+.map-container {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.map-title {
+  color: #5c4033;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.map-frame {
+  width: 100%;
+  max-width: 850px;
+  height: 300px;
+  margin: 0 auto;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 3px solid rgba(213, 122, 13, 0.25);
+  box-shadow: 0 10px 25px rgba(92, 64, 51, 0.15);
+  background: #fff8f0;
+}
+
+.map-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .map-frame {
+    height: 220px;
+  }
+}
+
+
+
+
+
