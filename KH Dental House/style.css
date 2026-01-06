@@ -1582,7 +1582,7 @@ body {
     }
 
     .hero-glass-card {
-        padding: 25px 20px;
+        padding: 20px 18px;
         border-radius: 18px;
     }
 
@@ -1608,8 +1608,9 @@ body {
     }
 
     .trust-badges {
-        padding-top: 20px;
-        gap: 12px;
+        padding-top: 15px;
+        gap: 10px;
+        margin-top: 15px !important;
     }
 
     .section-padding {
@@ -1776,6 +1777,8 @@ body {
     }
 
     .social-links-inline {
+        display: flex !important;
+        flex-direction: row !important;
         justify-content: center;
         width: 100%;
         margin-top: 5px !important;
